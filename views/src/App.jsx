@@ -7,11 +7,16 @@ import { useEffect, useState } from "react"
 import io from "socket.io-client"
 import { setOnlineUsers } from "./redux/userSlice"
 import { setSocket } from "./redux/socketSlice"
+import VideoCall from "./components/VideoCall"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />
+  },
+  {
+    path: "/video-call/:id",
+    element: <VideoCall />
   },
   {
     path: "/signup",

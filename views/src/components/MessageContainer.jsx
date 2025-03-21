@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedUser, clearAuthUser } from '../redux/userSlice';
+import VideoCallButton from './VideoCallButton';
 
 const MessageContainer = () => {
 
@@ -46,16 +47,20 @@ const MessageContainer = () => {
                             </div>
                             <div>
                                 <h3 className="text-lg font-semibold text-gray-300">{selectedUser?.fullName}</h3>
-                                <p className="text-sm text-gray-400">
+                                <p className="text-sm text-green-400">
                                     {isOnline ? "Online" : ""}
                                 </p>
                             </div>
                         </div>
 
-                        {/* Right: Logout Button */}
-                        <button onClick={logoutHandler} className="text-white bg-red-500 mr-3 px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none">
-                            Logout
-                        </button>
+                        <div className='flex'>
+                            <VideoCallButton />
+
+                            {/* Right: Logout Button */}
+                            <button onClick={logoutHandler} className="text-white ml-2 bg-red-500 mr-3 px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none">
+                                Logout
+                            </button>
+                        </div>
                     </div>
 
                     <Messages message={selectedUser?.message} />
